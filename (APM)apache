@@ -1,0 +1,40 @@
+신입 개발자로 일하면서...
+정말 많이 헤맸다...
+리눅스는 몇년 전에 하다 말아서 프로그래밍을 하기 위한 사전 작업인 리눅스 기반 apm 구성을 하는데 꽤 애를 먹었다.
+사실 그 때 당시에 어느 쪽이라고 할 수도 없는 그냥 단순 프로그래밍 방법이나 리눅스 사용 방법 정도만 배워서 감도 잘 안잡혔을 뿐더러 그냥 그런줄 알았다.
+
+처음 네트워크 구성까지는 기본적으로 완료가 되어있다는 전제 하에 (본인은 static이 아닌 dhcp를 이용했음, 진행하는데 있어서 크게 상관없음)
+
+# yum list updates && yum -y update // yum 관련 패키지를 업데이트 한다. 타 블로그들 보니까 yum -y update만 해도 된다고 하더라.
+
+# yum -y install gcc gcc-c++ libtermcap* libtermcap-devel gdbm-devel zlib* libxml* freetype* libpng-* libjpeg* gd-* // 의존성 라이브러리를 설치해준다.
+
+# yum -y install httpd // apache 설치는 사실 이 명령어가 끝이긴 하다. 상당히 간단하다
+
+# systemctl start httpd // apache 서비스를 실행한다.
+
+# systemctl enable httpd // 부팅시 자동으로 실행하도록 설정한다.
+
+여기서 중요한건 이제 포트포워딩인데, 타 블로그들을 보니 회사와 가정집의 환경에 차이가 있을 수 있다고 한다.
+기본적으로 80을 사용하는데 나는 50001을 사용했다.
+
+vi 편집기를 실행하기 전 먼저 vi ~/.bashrc 들어가서 vi='vim'을 추가해주자 (vim 패키지가 있어야 한다. # yum -y install yim 하면 될듯, 구글에도 정보가 깔려있음)
+
+또 영구 등록을 위해 vi /etc/profile에서 vi='vim' 똑같이 추가해주자.
+
+이제
+
+# vi /etc/httpd/conf/httpd.conf  // 아파치 설정파일 들어가자
+
+Listen 80 <- 이 부분은 포트를 80을 쓸거면 그냥 놔두고 50001을 쓸거면 50001이라고 변경해주자.
+
+<IfModule dir_module>
+  DirectoryIndex index.html 부분을
+  -> DirectoryIndex index.html index.php 요렇게 바꿔준다.
+ </IfModule dir_module>
+ 
+ 참고로 원하는 글씨 찾는건 명령어 입력에서 /Listen 이런식으로 입력하면됨
+ 그 다음에 저장종료는 :wq (보통 !을 붙여준다) :wq!
+ 
+ # systemctl restart httpd // 아파치 재실행
+ # systemctl status httpd // 아파치 실행상태
