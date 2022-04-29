@@ -16,3 +16,9 @@
 # httpd.conf 파일 포트 변경
 
 # vi /etc/httpd/conf/httpd.conf
+:Listen
+
+# 원하는 포트로 변경 ( 로컬시에 필요없음 )
+
+# 웹 서비스를 위한 포트 작동중인지 확인
+#netstat -tnlp
