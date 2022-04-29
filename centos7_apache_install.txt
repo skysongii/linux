@@ -1,0 +1,18 @@
+아파치 설치 ( CentOs7 )
+
+# yum list updates && yum -y install update
+
+# 의존성 라이브러리 설치
+# yum -y install gcc gcc-c++ libtermcap* libtermcap-devel gdbm-devel zlib* libxml* freetype* libpng-* libjpeg* gd-*
+
+# yum -y install httpd
+
+# systemctl start httpd
+
+# systemctl status httpd
+
+# systemctl enable httpd
+
+# httpd.conf 파일 포트 변경
+
+# vi /etc/httpd/conf/httpd.conf
