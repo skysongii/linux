@@ -1,0 +1,8 @@
+
+# 설치 명령어
+# yum install -y php php-mysql php-mbstring php-pdo php-gd
+
+만약 forbidden 권한 관련 에러가 뜬다면
+selinux를 disabled 처리해주면 된다.
+
+# vi /etc/selinux/config
