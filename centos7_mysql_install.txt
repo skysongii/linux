@@ -1,0 +1,16 @@
+mysql 5.6 혹은 5.7
+
+마리아 db 관련 패키지 있는지 검사
+# yum list installed mariadb
+
+mysql 5.6버전
+# yum -y install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm 
+# yum install mysql-community-server
+
+mysql 5.7버전
+# yum -y install http://dev.mysql.com/get/mysql-community-release-el7-11.noarch.rpm 
+# yum install mysql-community-server
+
+
+
+
