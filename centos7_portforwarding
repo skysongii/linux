@@ -1,0 +1,15 @@
+포트포워딩 했는데도 로컬에서 가상머신 서버 접속 불가능할 때
+
+장치 -> 공유폴더 -> NAS -> 고급 -> ip굳이 안적어도됨 -> 포트만 
+
+# vi /etc/httpd/conf/httpd.conf
+
+/Listen 포트번호
+
+Directory
+AllowOverride none
+Require all granted
+</Directory>
+:wq!
+
+vi /etc/sysconfig/selinux => disabled
