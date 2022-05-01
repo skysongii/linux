@@ -17,3 +17,9 @@ Kernel headers not found for target kernel
 # reboot
 
 재설치
+
+그대로 안되면
+
+# yum install gcc make perl bison m4 flex elfutils-libelf-devel
+# yum install kernel kernel-headers kernel-devel
+# rpm -qa | grep kernel | sort
