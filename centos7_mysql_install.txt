@@ -11,6 +11,21 @@ mysql 5.7버전
 # yum -y install http://dev.mysql.com/get/mysql-community-release-el7-11.noarch.rpm 
 # yum install mysql-community-server
 
+# systemctl start mysqld
+# systemctl enable mysqld
 
+# firewalld-cmd --permanent --zone=public --add-port=3306/tcp
+# firewall-cmd --reload
 
+위 방법 안되면 삭제 후
 
+# rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+# yum -y install mysql-community-server
+
+# mysql -u root -p mysql
+비번 없어서 그냥 엔터치면 됨
+mysql> UPDATE user SET password=password('새비밀번호') WHERE user='root';
+mysql> FLUSH PRIVILEGES;
+
+모든 권한 부여
+mysql> grant all privileges on *.* to '아이디'@'%'; 
