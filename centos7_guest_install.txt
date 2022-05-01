@@ -1,0 +1,19 @@
+리눅스 게스트 확장 CD 설치 (마우스 통합)
+
+장치 -> 드래그 앤 드롭 -> 양방향
+
+# yum groupinstall "Development Tools"
+
+# yum install kernel sources
+
+이런 에러 뜰 경우
+Kernel headers not found for target kernel
+
+게스트 OS에 설치된 라이브러리 최신으로 업데이트
+# yum update -y 
+
+# yum install binutils gcc make patch libgomp glibc-headers glibc-devel elfutils-libelf-devel kernel-headers kernel-devel kernel-uek-devel -y
+
+# reboot
+
+재설치
