@@ -29,3 +29,11 @@ mysql> FLUSH PRIVILEGES;
 
 모든 권한 부여
 mysql> grant all privileges on *.* to '아이디'@'%'; 
+
+혹시나 php에서 연동할 때 트러블 슈팅이 난다면
+vi /etc/php.ini
+
+extension=php_mysql.dll
+
+# yum erase php-mysql
+# yum install php-mysqlnd
